@@ -6,7 +6,10 @@
    - 担当:Cannyフィルタによる輪郭抽出　山口くん
    - 担当:画像のグレースケール化　森永さん
   - ファイル名
-   - 
+   - image_process_Gray.py...グレースケール化
+   - image_process_Canny.py...Cannyフィルタを使用した
+   - image_process_Kao.py...顔認識し囲う
+   - image_process_Mozaiku.py...顔にモザイク
  ## Web側
   - ユーザーがWebページより画像をアップロードできる
    - 担当：（1人）　志村くん
