@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='web.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/">画像処理(アップロード)</a>
+        </h1>
+        <nav class="web-nav">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">アップロードリスト</a></li>
+                <li><a href="#">グレースケール</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        画像ファイルを指定してください。
+        <form action="/" method="POST">
+            <input type="file" name="file"><br>
+            <p class="upload_button">
+                <button type="submit">アップロード</button>
+            </p>
+        </form>
+    </main>
+</body>
+
+</html>
