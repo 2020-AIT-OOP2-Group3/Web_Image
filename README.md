@@ -14,4 +14,5 @@
    ・ 担当：（1人）　篠原くん
  ## コメント欄
   ### WacthDogのドキュメント
-  1. [英語](https://pythonhosted.org/watchdog/)
+  1. [公式（英語）](https://pythonhosted.org/watchdog/)
+  2. [
