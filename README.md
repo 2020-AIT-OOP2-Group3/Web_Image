@@ -34,7 +34,7 @@
   | Githubの名前  |
   ### 担当箇所
   - コメント文
-  ### チーム作業のログ (git log --graph)
+  ### チーム作業のログ (git --no-pager log --graph)
   <pre>
   </pre>
   ### 感想
