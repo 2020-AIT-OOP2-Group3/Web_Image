@@ -16,6 +16,7 @@ def image_process_Canny(): #  引数として画像を追加する
     cv2.waitKey(0)
     cv2.destoloyAllWindows()
 
+    # return() #  加工した画像を返す
     
 
 if __name__ == "__main__":
