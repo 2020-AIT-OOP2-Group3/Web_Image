@@ -15,4 +15,7 @@
  ## コメント欄
   ### WacthDogのドキュメント
   1. [公式（英語）](https://pythonhosted.org/watchdog/)
-  2. [
+  2. [フォルダの操作方法](https://ailog.site/2020/03/06/0306/)
+  ### OpenCV
+  1. [公式](http://opencv.jp/opencv-2svn/py/)
+  2. [顔検出サイト](https://note.nkmk.me/python-opencv-face-detection-haar-cascade/)
