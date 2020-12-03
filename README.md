@@ -18,7 +18,8 @@
   - ユーザーはアップロードされた画像と処理済みの画像をいつでもWebページ経由で閲覧できる
     - 担当：（1人）　篠原くん
   - ファイル名
-    - ****.html
+    - index.html
+    - ****.css
  ## コメント欄
   ### WacthDogのドキュメント
   1. [公式（英語）](https://pythonhosted.org/watchdog/)
