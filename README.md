@@ -29,7 +29,7 @@
   2. [顔検出サイト](https://note.nkmk.me/python-opencv-face-detection-haar-cascade/)
   
 # 提出物テンプレート
- ## 第１１回レポート
+ ## 第１１回レポート(参考にして下さい）
   ### GitHubアカウント
   | Githubの名前  |
   ### 担当箇所
