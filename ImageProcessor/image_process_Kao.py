@@ -1,10 +1,23 @@
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 import cv2
-import numpy as np
+import time
 
-def image_process_Kao():#  引数として画像を追加する
-    cascade_path = "/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
 
-    face_img = cv2.imread('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/uchitane_far.png') 
+class ChangeHandler(FileSystemEventHandler):
+   
+    def on_created(self, event):
+        addfile_name=str(event)
+        addfile_name=addfile_name.replace('<FileCreatedEvent: src_path=','')
+        addfile_name=addfile_name.replace(">",'')
+        addfile_name=addfile_name.replace("'",'')
+        addfile_name=addfile_name.replace("'",'')
+
+        image_process_Kao(addfile_name)
+
+def image_process_Kao(file_name):
+    cascade_path = "/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
+    face_img = cv2.imread(file_name) 
     gry_img = cv2.cvtColor(face_img, cv2.COLOR_BGR2GRAY)
     
     cascade = cv2.CascadeClassifier(cascade_path) 
@@ -16,7 +29,14 @@ def image_process_Kao():#  引数として画像を追加する
         for rect in facerect:
             cv2.rectangle(face_img, tuple(rect[0:2]),tuple(rect[0:2] + rect[2:4]), rectangle_color, thickness=2)
 
-    cv2.imwrite('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_face/face_img.png',face_img)
+    cv2.imwrite('/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/image_face/face_img.png',face_img)
+    
 
-if __name__ == "__main__":
-    image_process_Kao()
+observer = Observer()
+# 監視するフォルダを第２引数に指定
+observer.schedule(ChangeHandler(), '/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/image_add', recursive=True)
+# 監視を開始する
+observer.start()
+
+while True:
+    time.sleep(5)
