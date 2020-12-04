@@ -15,7 +15,7 @@ def image_process_Kao():#  引数として画像を追加する
     if len(facerect) > 0:
         for rect in facerect:
             cv2.rectangle(result_img, tuple(rect[0:2]),tuple(rect[0:2] + rect[2:4]), rectangle_color, thickness=2)
- 
+
     cv2.namedWindow('result')
     cv2.imshow('result',result_img)
     cv2.waitKey(0)
