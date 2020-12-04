@@ -15,7 +15,7 @@ class ChangeHandler(FileSystemEventHandler):
         image_process_Mozaiku(addfile_name)
 
 def image_process_Mozaiku(file_name):
-    cascade_path = "/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
+    cascade_path = "/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
 
     mozaiku_img = cv2.imread(file_name) 
     gry_img = cv2.cvtColor(mozaiku_img,cv2.COLOR_BGR2GRAY)
@@ -31,11 +31,11 @@ def image_process_Mozaiku(file_name):
             roi = cv2.resize(roi, (w, h), interpolation=cv2.INTER_NEAREST)
             mozaiku_img[y:y+h, x:x+w] = roi               
 
-    cv2.imwrite('/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/image_mozaiku/mozaiku_img.png',mozaiku_img)
+    cv2.imwrite('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_mozaiku/mozaiku_img.png',mozaiku_img)
     
 observer = Observer()
 # 監視するフォルダを第２引数に指定
-observer.schedule(ChangeHandler(), '/Users/k19044kk/Documents/GitHub/Web_Image/ImageProcessor/image_add', recursive=True)
+observer.schedule(ChangeHandler(), '/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_add', recursive=True)
 # 監視を開始する
 observer.start()
 
