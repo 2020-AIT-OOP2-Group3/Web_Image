@@ -17,10 +17,8 @@ def image_process_Mozaiku():
             roi = cv2.resize(roi, (w, h), interpolation=cv2.INTER_NEAREST)
             mozaiku_img[y:y+h, x:x+w] = roi               
 
-    cv2.namedWindow('mozaiku')
-    cv2.imshow('mozaiku', mozaiku_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    cv2.imwrite('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_mozaiku/mozaiku_img.png',mozaiku_img)
+    
 
 if __name__ == "__main__":
     image_process_Mozaiku()
