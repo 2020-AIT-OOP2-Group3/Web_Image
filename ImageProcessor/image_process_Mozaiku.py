@@ -4,7 +4,7 @@ import cv2
 import time
 
 class ChangeHandler(FileSystemEventHandler):
-    
+
     def on_created(self, event):
         addfile_name=str(event)
         addfile_name=addfile_name.replace('<FileCreatedEvent: src_path=','')
@@ -17,7 +17,7 @@ class ChangeHandler(FileSystemEventHandler):
 def image_process_Mozaiku(file_name):
     cascade_path = "/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
 
-    mozaiku_img = cv2.imread(file_name) 
+    mozaiku_img = cv2.imread(file_name)
     gry_img = cv2.cvtColor(mozaiku_img,cv2.COLOR_BGR2GRAY)
 
     cascade = cv2.CascadeClassifier(cascade_path)
@@ -32,7 +32,7 @@ def image_process_Mozaiku(file_name):
             mozaiku_img[y:y+h, x:x+w] = roi               
 
     cv2.imwrite('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_mozaiku/mozaiku_img.png',mozaiku_img)
-    
+
 observer = Observer()
 # 監視するフォルダを第２引数に指定
 observer.schedule(ChangeHandler(), '/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_add', recursive=True)
