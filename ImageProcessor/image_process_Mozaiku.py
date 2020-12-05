@@ -1,9 +1,23 @@
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 import cv2
+import time
 
-def image_process_Mozaiku():
+class ChangeHandler(FileSystemEventHandler):
+
+    def on_created(self, event):
+        addfile_name=str(event)
+        addfile_name=addfile_name.replace('<FileCreatedEvent: src_path=','')
+        addfile_name=addfile_name.replace(">",'')
+        addfile_name=addfile_name.replace("'",'')
+        addfile_name=addfile_name.replace("'",'')
+
+        image_process_Mozaiku(addfile_name)
+
+def image_process_Mozaiku(file_name):
     cascade_path = "/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/haarcascade_frontalface_default.xml"
 
-    mozaiku_img = cv2.imread('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/uchitane_far.png') 
+    mozaiku_img = cv2.imread(file_name)
     gry_img = cv2.cvtColor(mozaiku_img,cv2.COLOR_BGR2GRAY)
 
     cascade = cv2.CascadeClassifier(cascade_path)
@@ -18,7 +32,12 @@ def image_process_Mozaiku():
             mozaiku_img[y:y+h, x:x+w] = roi               
 
     cv2.imwrite('/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_mozaiku/mozaiku_img.png',mozaiku_img)
-    
 
-if __name__ == "__main__":
-    image_process_Mozaiku()
+observer = Observer()
+# 監視するフォルダを第２引数に指定
+observer.schedule(ChangeHandler(), '/Users/k19100kk/Documents/GitHub/Web_Image/ImageProcessor/image_add', recursive=True)
+# 監視を開始する
+observer.start()
+
+while True:
+    time.sleep(5)
