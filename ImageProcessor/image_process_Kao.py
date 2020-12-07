@@ -33,6 +33,7 @@ def ready():
         #画像保存
         cv2.imwrite(OUT_DIR + notface_file,face)
 
+
 if __name__ in '__main__':
     # 処理が終了しないようにスリープを挟んで無限ループ
     while True:

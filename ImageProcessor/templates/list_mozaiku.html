@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ファイルアップロード</title>
+    <title>モザイク画像の一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='web.css') }}">
 </head>
-
 <body>
     <header>
-        <h1>
-            <a href="/">画像処理(アップロード)</a>
-        </h1>
         <nav class="web-nav">
             <ul>
+                <li><a href="/">HOME</a></li>
                 <li><a href="/add_list/">アップロード画像</a></li>
                 <li><a href="/gray_list/">グレースケール画像</a></li>
                 <li><a href="/carry_list/">Canny画像</a></li>
                 <li><a href="/face_list/">顔認証画像</a></li>
-                <li><a href="/mozaiku_list/">モザイク画像</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        画像ファイルを指定してください。
-        <form action="/upload" method="POST"  enctype="multipart/form-data">
-            <input type="file" name="file"><br>
-            <p class="upload_button">
-                <button type="submit">アップロード</button>
-            </p>
-        </form>
-        {{fileUp}}
+        <div class="container mt-5">
+            <h1>モザイク画像</h1>
+            <div>
+                <!--pythonで取得したurlをfor文で回して表示-->
+                {% for url in image_files %}
+                <img src="{{url}}" alt="">
+                {% endfor %}
+            </div>
+        </div>
     </main>
 </body>
-
 </html>
