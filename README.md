@@ -27,3 +27,15 @@
   ### OpenCV
   1. [公式](http://opencv.jp/opencv-2svn/py/)
   2. [顔検出サイト](https://note.nkmk.me/python-opencv-face-detection-haar-cascade/)
+  
+# 提出物テンプレート
+ ## 第１１回レポート(参考にして下さい）
+  ### GitHubアカウント
+  | Githubの名前  |
+  ### 担当箇所
+  - コメント文
+  ### チーム作業のログ (git --no-pager log --graph)
+  <pre>
+  </pre>
+  ### 感想
+  - コメント文
