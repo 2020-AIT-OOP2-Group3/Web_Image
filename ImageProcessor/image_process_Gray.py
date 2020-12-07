@@ -6,11 +6,11 @@ import cv2
 OUT_DIR = "image_gray/"
 
 def ready():
-    #image_addディレクトリにあるファイル名のリスト
+    #入力画像ディレクトリにあるファイル名のリスト
     add_files = os.listdir("image_add")
-    #image_grayディレクトリにあるファイル名のリスト
+    #出力画像ディレクトリにあるファイル名のリスト
     gray_files = os.listdir("image_gray")
-    #image_addにある画像の中でグレースケール化されてない画像を見つける
+    #入力画像ディレクトリにある画像の中でグレースケール化されてない画像を見つける
     notgray_files = [i for i in add_files if not i in gray_files]
     #全てグレースケール化する
     for notgray_file in notgray_files:
@@ -21,7 +21,7 @@ def ready():
         #画像保存
         cv2.imwrite(OUT_DIR + notgray_file,gray)
     
-    #image_grayディレクトリにあるファイル名のリスト
+    #出力画像ディレクトリにあるファイル名のリスト
     gray_files = os.listdir("image_gray")
     #全てグレースケール化
     for gray_file in gray_files:
