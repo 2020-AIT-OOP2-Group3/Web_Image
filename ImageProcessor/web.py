@@ -1,14 +1,32 @@
-from flask import Flask, request, render_template, url_for, send_from_directory
+from flask import Flask, request, render_template, url_for, send_from_directory, redirect
 from werkzeug.utils import secure_filename
 import os
 import glob
-
+import imghdr
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    fs = request.files['file']
+
+    if fs.filename == '':
+        return render_template("index.html", fileUp='ファイルが未指定です')
+
+    ALLOWED_TYPES = ['jpeg', 'png']
+    file_type = imghdr.what(fs.stream)
+    if not file_type in ALLOWED_TYPES:
+        return render_template("index.html", fileUp="画像ファイルを指定してください")
+
+    dir = "./image_add/"
+    fs.save(dir + fs.filename)
+
+    return render_template("index.html", fileUp="ファイルのアップロードに成功しました")
 
 @app.context_processor
 def override_url_for():
