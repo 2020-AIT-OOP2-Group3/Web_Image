@@ -3,11 +3,8 @@ import time
 import sys
 import cv2
 
-# スクリプト実行用ディレクトリを絶対パスで指定する
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
 OUT_DIR = "image_gray/"
 
-#初期状態の処理
 def ready():
     #image_addディレクトリにあるファイル名のリスト
     add_files = os.listdir("image_add")
@@ -23,6 +20,20 @@ def ready():
         gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
         #画像保存
         cv2.imwrite(OUT_DIR + notgray_file,gray)
+    
+    #image_grayディレクトリにあるファイル名のリスト
+    gray_files = os.listdir("image_gray")
+    #全てグレースケール化
+    for gray_file in gray_files:
+        #画像を読み込む
+        img2 = cv2.imread(OUT_DIR + gray_file)
+        #上記で読み込んだファイルを削除
+        os.remove(OUT_DIR + gray_file)
+        #グレースケール化
+        gray = cv2.cvtColor(img2, cv2.COLOR_RGB2GRAY)
+        #画像保存
+        cv2.imwrite(OUT_DIR + gray_file,gray)
+
 
 if __name__ in '__main__':
     # 処理が終了しないようにスリープを挟んで無限ループ
