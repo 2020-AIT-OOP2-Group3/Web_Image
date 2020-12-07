@@ -59,3 +59,9 @@ main {
     outline: none; /* クリックしたときに表示される枠線を消す */
    border-radius: 5px;
 }
+
+img{
+   width: 50%;
+   height: 50%;
+   object-fit: contain;
+}
