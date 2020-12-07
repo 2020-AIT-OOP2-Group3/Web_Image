@@ -18,17 +18,21 @@
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">アップロードリスト</a></li>
                 <li><a href="#">グレースケール</a></li>
+                <li><a href="#">Cannyフィルタ</a></li>
+                <li><a href="#">枠で囲う</a></li>
+                <li><a href="#">モザイク</a></li>
             </ul>
         </nav>
     </header>
     <main>
         画像ファイルを指定してください。
-        <form action="/" method="POST">
+        <form action="/upload" method="POST"  enctype="multipart/form-data">
             <input type="file" name="file"><br>
             <p class="upload_button">
                 <button type="submit">アップロード</button>
             </p>
         </form>
+        {{fileUp}}
     </main>
 </body>
 
