@@ -25,15 +25,8 @@ def ready():
         cv2.imwrite(OUT_DIR + notgray_file,gray)
 
 if __name__ in '__main__':
+    # 処理が終了しないようにスリープを挟んで無限ループ
     while True:
-        try:
-            # 処理が終了しないようにスリープを挟んで無限ループ
-            while True:
-                # 1秒ごとに監視
-                time.sleep(1)
-                ready()
-        # 無限ループからキー入力で監視をやめる
-        except KeyboardInterrupt:
-            observer.stop()
-        # observer.stop()だけでは裏で動くスレッドは停止してないので、完全に停止するまで待つためにjoin()を呼んでいる。
-        observer.join()
+        # 1秒ごとに監視
+        time.sleep(1)
+        ready()
