@@ -131,13 +131,13 @@ def mozaiku_list():
     urls = []
     #fileにfilesで取得した画像のurlを格納
     for file in files:
-        urls.append("/add/" + os.path.basename(file))
+        urls.append("/mozaiku/" + os.path.basename(file))
     return render_template("list_mozaiku.html", image_files = urls)
 
 #image_addのファイルダウンロード
-@app.route('/add/<path:filename>')
+@app.route('/mozaiku/<path:filename>')
 def mozaiku_file(filename):
-    return send_from_directory(app.config['ADD_FOLDER'], filename)
+    return send_from_directory(app.config['MOZAIKU_FOLDER'], filename)
 
 
 if __name__ == '__main__':
